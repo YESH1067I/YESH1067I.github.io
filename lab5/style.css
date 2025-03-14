@@ -1,0 +1,48 @@
+#navbar{
+    background-color: #1b1b6c;
+}
+
+#hello{
+    background-color: #13124f;
+    max-height: 400px;
+    margin-top:0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    color:white;
+}
+
+#grey{
+    display: block;
+    background-color: #9090a5;
+}
+
+.red{
+    text-align: center;
+    display: block;
+    background-color: red;
+    text-decoration: none;
+    color:white
+}
+
+#div1{
+    float:left;
+    padding: 20px;
+}
+
+#div2{
+    float: left;
+    padding: 10px;
+}
+
+#button{
+    max-width: 110px;
+}
+
+p{
+    font-family: 'Lato Regular';
+}
+
+h1{
+    font-family: 'Lato Bold';
+}

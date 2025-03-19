@@ -16,6 +16,9 @@ footer > p{
 .a{
     text-decoration: none;
 }
+footer{
+    padding: 10px;
+}
 
 #hello{
     background-color: #13124f;

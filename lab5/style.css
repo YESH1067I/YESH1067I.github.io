@@ -4,6 +4,15 @@ nav, footer{
     clear:both;
 }
 
+footer{
+    margin-bottom: 0px;
+}
+
+footer > p{
+    margin-bottom: 0px;
+    padding:10px;
+}
+
 .a{
     text-decoration: none;
 }
@@ -76,8 +85,6 @@ p{
 
 h1, h5{
     font-family: 'Lato Bold';
-    font-size:smaller;
-    box-sizing: border-box;
 }
 
 img{
@@ -110,6 +117,18 @@ iframe{
     box-sizing: border-box;
 }
 
+#div2 > section:first-of-type > section > p:first-of-type{
+    background-color:#9090a5;
+    margin: 0px;
+    height: 2px;
+}
+
+#div2 > section:first-of-type > section > p:last-of-type{
+    background-color:#9090a5;
+    margin: 0px;
+    height: 3px;
+}
+
 #div2 > section:first-of-type :last-child p, #div2 > section:first-of-type :last-child a{
     text-decoration: none;
     background-color: #352ba5;
@@ -132,8 +151,6 @@ iframe{
 
 #div2 > section:first-of-type :nth-child(3){
     margin:10px;
-    text-decoration: overline underline;
-    text-decoration-color: #9090a5;
 }
 
 input{

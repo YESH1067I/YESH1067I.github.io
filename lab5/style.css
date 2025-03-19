@@ -16,9 +16,6 @@ footer > p{
 .a{
     text-decoration: none;
 }
-footer{
-    padding: 10px;
-}
 
 #hello{
     background-color: #13124f;
@@ -205,5 +202,7 @@ input{
     margin-bottom: 4px;
     margin-right:4px;
 }
+
+
 
 

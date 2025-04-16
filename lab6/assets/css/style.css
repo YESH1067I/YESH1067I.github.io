@@ -203,12 +203,10 @@ section:nth-of-type(2) div.container div.card-body > div:nth-of-type(5){
 }
 
 section:nth-of-type(2) div.container div.card-body > div:nth-of-type(5) > div{
-    height: 400px;
+    display:flex;
+    columns: 2;
+    height: fit-content;
     background-color:#F6F7F9;
-}
-
-section:nth-of-type(2) div.container div.card-body > div:nth-of-type(5) > div > div:first-of-type{
-
 }
 
 section:nth-of-type(2) div.container div.card-body > div:nth-of-type(5) > div > div:last-of-type{
@@ -221,10 +219,9 @@ section:nth-of-type(2) div.container div.card-body > div:nth-of-type(5) > div > 
     text-align: center;
 }
 
-section:nth-of-type(2) div.container div.card-body > div:nth-of-type(5) > div > div:first-of-type{
-    background-image: url(../img/photos/tm1.jpg);
-    background-size:cover;
-    background-position:510px ;
+section:nth-of-type(2) div.container div.card-body > div:nth-of-type(5) > div > div:first-of-type > img{
+    width: 100%;
+    height: 100%;
 }
 
 .card.bg-gray blockquote.icon.icon-top.fs-lg.text-center {
@@ -590,6 +587,13 @@ body > div> section:nth-of-type(2) > div > div{
 
 
 @media only screen and (max-width: 480px) {
+    body > div> section:nth-of-type(2) > div{
+        position: relative;
+        top: -80px;
+        height:fit-content;
+        z-index: 1;
+    }
+
     body > div> section:nth-of-type(2) > div > div{
         position: static;
         display: block;
@@ -615,6 +619,7 @@ body > div> section:nth-of-type(2) > div > div{
     img{
         max-width: 100% !important;
     }
+    
 }
 
 

@@ -537,32 +537,31 @@ h3 {
     display: none;
 }
 
-section:nth-of-type(2) div.container div.card-body > div:nth-of-type(10){ 
-    margin-top: 100px;
-    background-image: url(./assets/img/map1.png);
-    background-size: 500px;   
+section:nth-of-type(2) div.container div.card-body > div:nth-of-type(10) { 
+    display: flex;
+    height: max-content;
+    align-items: center;
+    margin-top:75px;
 }
 
-section:nth-of-type(2) div.container div.card-body > div:nth-of-type(10) > div > div{ 
-    margin-top: 100px;   
+section:nth-of-type(2) div.container div.card-body > div:nth-of-type(10) > div > div:last-of-type{ 
+    margin-top: 40px;   
+    height: fit-content;
+    background-size: 250px;
+}
+
+section:nth-of-type(2) div.container div.card-body > div:nth-of-type(10) > div > div:first-of-type > div> h3{ 
+    margin: 0%;
+}
+
+section:nth-of-type(2) div.container div.card-body > div:nth-of-type(10) > div{ 
     display: block;
-    background-image: url(./assets/img/map1.png);
-    background-size: 500px;
-    background-color: none;
-}
-
-div.container.py-md-16.py-lg-18{
-    all:unset;
-    background-color: none;
-    background-image: url(./assets/img/map1.png);
-    background-size: 500px;
-}
-
-div.wrapper.image-wrapper.bg-auto.no-overlay.bg-image.text-center.bg-map{
-    all:unset;
-    background-color: none;
-    background-image: url(./assets/img/map1.png);
-    background-size: 500px;
+    align-items: center;
+    max-width: 75%;
+    max-height: 100%;
+    background-image: url(../img/map.webp) !important;
+    background-size:cover;
+    padding: 125px 0px 125px 0px;
 }
 
 body > div> section:nth-of-type(2){

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertor</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="header">
+        <header><h1>WELCOME TO CURRENCY CONVERTOR</h1></header>
+    </div>
+    <div class="container">
+        <div>
+            <p>Choose your current currency</p>
+            <select id="currencyCur">
+                <option value="0">USD</option>
+                <option value="1">EUR</option>
+                <option value="2">POUND</option>
+                <option value="3">WON</option>
+                <option value="4">YEN</option>
+                <option value="5">YAN</option>
+                <option value="6">MNT</option>
+            </select>
+        </div>
+        <div class="content">
+            <div class="input">
+                <input id="input" placeholder="" readonly>
+            </div>
+            <div class="row">
+                <button onclick="a()">
+                    1
+                </button>
+                <button onclick="b()">
+                    2
+                </button>
+                <button onclick="c()">
+                    3
+                </button>
+                <button onclick="remove()" class="spec">
+                    rem
+                </button>
+            </div>
+            <div class="row">
+                <button onclick="d()">
+                    4
+                </button>
+                <button onclick="e()">
+                    5
+                </button>
+                <button onclick="f()">
+                    6
+                </button>
+                <button onclick="clr()" class="spec">
+                    clr
+                </button>
+            </div>
+            <div class="row">
+                <button onclick="g()">
+                    7
+                </button>
+                <button onclick="h()">
+                    8
+                </button>
+                <button onclick="i()">
+                    9
+                </button>
+            </div>
+            <div class="row">
+                <button onclick="k()">
+                    .
+                </button>
+                <button onclick="j()">
+                    0
+                </button>
+                <button onclick="calculate()" class="spec">
+                    enter
+                </button>
+            </div>
+        </div>
+        <div>
+            <p>Choose your currency to exchange</p>
+            <select id="currencyToExchange">
+                <option value="0">USD</option>
+                <option value="1">EUR</option>
+                <option value="2">POUND</option>
+                <option value="3">WON</option>
+                <option value="4">YEN</option>
+                <option value="5">YAN</option>
+                <option value="6">MNT</option>
+            </select>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

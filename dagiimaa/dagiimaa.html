@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday, Dagiimaa! 🎂</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rose:#f43f5e; --rose-50:#fff1f2; --fuchsia:#a21caf; --ink:#222; --muted:#6b7280;
+      --card:#ffffffd9; --line:#fce7f3;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:'Nunito',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);
+      background: radial-gradient(1200px 600px at 20% -10%, #fde2e4 0, #fff 60%),
+                  radial-gradient(1000px 600px at 120% 20%, #fae8ff 0, #fff 60%),
+                  linear-gradient(180deg,#fff, #fff9fb);
+    }
+    .wrap{max-width:980px;margin:0 auto;padding:16px 20px 80px}
+    header{position:sticky;top:0;background:#ffffffcc;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    header .inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+    header .brand{font-weight:800}
+    header time{color:var(--rose);font-weight:600}
+
+    .hero{padding:48px 12px 16px;text-align:center}
+    .hero h1{font-size:clamp(32px,6vw,56px);margin:0;background:linear-gradient(90deg,var(--rose),#d946ef,#6d28d9);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+    .hero p{max-width:680px;margin:12px auto 0;color:var(--muted)}
+    .cta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+    .btn{appearance:none;border:1px solid var(--line);background:#fff;padding:10px 14px;border-radius:14px;font-weight:600;color:var(--rose);cursor:pointer}
+    .btn:hover{box-shadow:0 6px 18px #00000010}
+
+    .card{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:0 6px 18px #00000007;padding:18px}
+    section{margin-top:22px}
+    h2{font-size:20px;margin:0 0 10px}
+    #type{ color:var(--muted) }
+    a{text-decoration:none}
+
+    /* Countdown */
+    .count-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:560px;margin:12px auto 0}
+    .box{background:var(--rose-50);border:1px solid var(--line);border-radius:16px;padding:12px;text-align:center}
+    .num{font-size:28px;font-weight:800;font-variant-numeric:tabular-nums}
+    .lab{font-size:12px;color:var(--muted)}
+
+    /* Gallery */
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    @media(min-width:720px){.grid{grid-template-columns:repeat(3,1fr)}}
+    .thumb{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+    .thumb img{display:block;width:100%;height:160px;object-fit:cover}
+
+    .modal{position:fixed;inset:0;background:#0008;display:none;place-items:center;padding:18px;z-index:50}
+    .modal.open{display:grid}
+    .modal img{max-height:80vh;border-radius:18px}
+
+    /* Surprise */
+    .center{text-align:center}
+    .big{font-weight:800;font-size:24px}
+
+    footer{margin-top:36px;padding:20px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
+
+    /* confetti */
+    .confetti{position:absolute;top:0;width:10px;height:10px;border-radius:2px;opacity:.9;animation:fall 3s ease-in forwards}
+    @keyframes fall{0%{transform:translateY(-10px) rotate(0)}100%{transform:translateY(340px) rotate(540deg);opacity:0}}
+    .tasks-grid{display:grid;gap:10px}
+    @media(min-width:720px){.tasks-grid{grid-template-columns:repeat(3,1fr)}}
+    .task{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px}
+    .badge{font-size:12px;padding:2px 8px;border-radius:999px}
+    .badge.locked{background:#f3f4f6;color:#6b7280}
+    .badge.unlocked{background:#dcfce7;color:#166534}
+
+    /* Reveal animation for birthday sections */
+    .reveal{ animation: popIn .8s ease-out both }
+    @keyframes popIn{
+      0%{ transform:scale(.9); opacity:0 }
+      60%{ transform:scale(1.03); opacity:1 }
+      100%{ transform:scale(1) }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" aria-hidden="true" id="hearts"></div>
+
+  <header>
+    <div class="inner">
+      <div class="brand">Dagiimaa's Day ✨</div>
+      <time id="date"></time>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="hero hb" style="display:none">
+      <h1>ТӨРСӨН ӨДРИЙН МЭНД ХҮРГЭЕ ЭЭ, МИНИЙ ГҮНЖ ЭЭ❤️</h1>
+      <p>Хөөрхөн Дагиймаагийн төрсөн өдөр нь юм байхдаа. Пүү гал гал. Үнэхээр хөөрхөн💌</p>
+      <div class="cta">
+        <a class="btn" href="#gallery">Memories</a>
+        <a class="btn" href="#surprise">Open Surprise</a>
+      </div>
+    </section>
+
+    <section class="card" id="countdown">
+      <h2>Чиний минь төрсөн өдөр болоход 🎂</h2>
+      <div class="count-grid">
+        <div class="box"><div class="num" id="d">00</div><div class="lab">Days</div></div>
+        <div class="box"><div class="num" id="h">00</div><div class="lab">Hours</div></div>
+        <div class="box"><div class="num" id="m">00</div><div class="lab">Minutes</div></div>
+        <div class="box"><div class="num" id="s">00</div><div class="lab">Seconds</div></div>
+      </div>
+      <div id="today" style="text-align:center;margin-top:8px;color:var(--rose);font-weight:600"></div>
+    </section>
+
+    <section class="card hb" id="letter" style="display:none">
+      <h2>Хайртдаа💖</h2>
+      <p id="type"></p>
+    </section>
+
+    <section class="card hb" id="gallery" style="display: none;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline"><h2>Бидний бяцхан цомог 📷</h2><span style="color:var(--muted);font-size:14px">Зурган дээр дарвал томорч харагдана шүү ханиа❤️</span></div>
+      <div class="grid" id="pics"></div>
+    </section>
+
+    <section class="card" id="plan">
+      <h2>Төрсөн өдрийн төлөвлөгөө 🗓️</h2>
+      <ul id="planlist" style="margin:8px 0 0 18px;line-height:1.8"></ul>
+    </section>
+
+    <section class="card" id="tasks">
+      <!-- This gets replaced by JS depending on time -->
+      <h2>Нууц даалгаварууд</h2>
+      <p style="color:var(--muted)">Loading…</p>
+    </section>
+
+    <section class="card center hb" id="surprise" style="display:none">
+      <h2>Бяцхан бэлэг 🎁</h2>
+      <button class="btn" id="open">Нээх</button>
+      <div id="surpriseBox" style="display:none;margin-top:14px" class="card">
+        <div class="big">Дагиймаад💗</div>
+        <p>Хөөш одоо унт! Өглөө хийх ажил их байна. Хха за за тоглосон юмаа. Сайхан амраарай миний гүнж ээ❤️.</p>
+      </div>
+    </section>
+
+    <footer>Дагиймаад хайртай нэгэн ❤️ хайраар бүтээв.</footer>
+  </div>
+
+  <!-- Simple lightbox modal -->
+  <div class="modal" id="modal" aria-hidden="true"><img alt="" id="modalimg"></div>
+
+  <!-- Birthday song (put your mp3 next to index.html or change the src) -->
+  <audio id="bdaySong" src="birthday-song.mp3" preload="auto" loop></audio>
+
+<script>
+// ====== PERSONALIZE THESE ======
+const BIRTHDAY_ISO = '2025-11-12T21:54:00'; // ← birthday (local time ok)
+const UNLOCK_DELAY_HOURS = 0;              // ← release tasks this many hours after birthday
+const LOVE_LETTER = `Хайртай, хөөрхөн, эгдүүтэй, сэтгэлийг булаасан чамдаа төрсөн өдрийн мэнд хүргэе! 20 нас гэх том насанд хүрчихлээ шүү ххэ. Чамтай учирсанаас хойш миний амьдрал үргэлжид гэрэлтэй байх болсон. Яагаад гээч? Чи үргэлж намайг нар шиг хүн гэдэгч угтаа харин миний хувьд жинхэнэ нар, амьдралын минь утга учир юу вэ гэдгийг гэрэлтүүлж өгсөн хүн нь чи байсан шүү! Амьдралынхаа үлдсэн цаг хугацааг чамтай хамт өнгөрүүлэхдээ жаргалтай байх болно оо! Итгээрэй! Би чиний надтай тэмдэглэх гэж байгаа анхны төрсөн өдөр чинь хамгийн дурсамжтай, хамгийн үзэсгэлэнтэй, мартагдашгүй байгаасай гэж чин сэтгэлээсэй хүсэж байна! Хайртай шүү!`;
+const GALLERY = [
+        'bid1.jpg',
+        'bid2.jpg',
+        'bid3.jpg',
+        'bid4.jpg',
+        'bid5.jpg',
+        'bid6.jpg'
+];
+const PLAN = [
+  ['Өдөр','Монголын Үлгэр Жишээ Үлээвэр найрал хөгжмийн цэргүүд төрсөн өдрийн ая тоглоно.'],
+  ['Орой','Зэвсэгт Хүчний 029-дугаар ангийн он жавууд, миний ханьд зориулж Эх Орон мартахгүй дууг дуулна.'],
+  ['Си лекцийн дараа','Миний ханийн төрсөн өдөрт зориулж Монгол Улсын Ерөнхий сайд Занданшатар үг хэлнэ.']
+];
+// =================================
+
+// Header date
+const dt = new Date(BIRTHDAY_ISO);
+const dateFmt = new Intl.DateTimeFormat(undefined,{year:'numeric',month:'long',day:'numeric'});
+document.getElementById('date').textContent = dateFmt.format(dt);
+
+// Countdown
+(function countdown(){
+  const d=document.getElementById('d'),h=document.getElementById('h'),m=document.getElementById('m'),s=document.getElementById('s'), today=document.getElementById('today');
+  function tick(){
+    const now=Date.now();
+    const diff=Math.max(0, new Date(BIRTHDAY_ISO).getTime()-now);
+    const sec=Math.floor(diff/1000);
+    const days=Math.floor(sec/86400);
+    const hours=Math.floor((sec%86400)/3600);
+    const mins=Math.floor((sec%3600)/60);
+    const secs=sec%60;
+    d.textContent=String(days).padStart(2,'0');
+    h.textContent=String(hours).padStart(2,'0');
+    m.textContent=String(mins).padStart(2,'0');
+    s.textContent=String(secs).padStart(2,'0');
+    today.textContent = diff===0 ? "It's today! Make a wish ✨" : '';
+  }
+  tick();
+  setInterval(tick,1000);
+})();
+
+// Typewriter love letter
+(function type(){
+  const el=document.getElementById('type');
+  let i=0; const t=LOVE_LETTER;
+  const id=setInterval(()=>{el.textContent=t.slice(0,++i); if(i>=t.length) clearInterval(id)},25);
+})();
+
+// Gallery
+(function gallery(){
+  const pics=document.getElementById('pics');
+  GALLERY.forEach((src,i)=>{
+    const b=document.createElement('button'); b.className='thumb'; b.setAttribute('aria-label','Open photo '+(i+1));
+    const img=new Image(); img.src=src; img.alt='Memory '+(i+1); b.appendChild(img);
+    b.onclick=()=>openModal(src);
+    pics.appendChild(b);
+  })
+})();
+
+// Modal
+const modal=document.getElementById('modal');
+const modalImg=document.getElementById('modalimg');
+function openModal(src){ modal.classList.add('open'); modalImg.src=src; }
+modal.onclick=()=>modal.classList.remove('open');
+
+// Plan
+(function plan(){
+  const ul=document.getElementById('planlist');
+  PLAN.forEach(([title,detail])=>{
+    const li=document.createElement('li');
+    li.innerHTML = `<strong>${title}</strong> — <span style="color:var(--muted)">${detail}</span>`;
+    ul.appendChild(li);
+  })
+})();
+
+// Surprise
+(function surprise(){
+  const btn=document.getElementById('open');
+  const box=document.getElementById('surpriseBox');
+  btn.onclick=()=>{
+    burstConfetti(120, btn);
+    box.style.display='block';
+    box.scrollIntoView({behavior:'smooth'});
+  }
+
+  function burstConfetti(n, anchor){
+    for(let i=0;i<n;i++){
+      const p=document.createElement('span');
+      p.className='confetti';
+      p.style.left = (anchor.getBoundingClientRect().left + window.scrollX + anchor.offsetWidth/2) + 'px';
+      p.style.top  = (anchor.getBoundingClientRect().top  + window.scrollY) + 'px';
+      p.style.background = `hsl(${Math.random()*360} 90% 70%)`;
+      p.style.transform = `translateX(${(Math.random()*2-1)*40}px)`;
+      p.style.animationDelay = (Math.random()).toFixed(2)+'s';
+      document.body.appendChild(p);
+      setTimeout(()=>p.remove(),3000);
+    }
+  }
+})();
+
+// ===== Time-gated TASKS: unlock after UNLOCK_DELAY_HOURS =====
+(function tasksGated(){
+  const section = document.getElementById('tasks');
+  const UNLOCK_AT = new Date(BIRTHDAY_ISO).getTime() + UNLOCK_DELAY_HOURS*3600*1000;
+
+  const TASKS=[
+    {key:'love',  title:'Даалгавар 1', instruction:'Чи үнэхээр хөөрхөн! МУИС-ийн 5-р байрны урд байдаг GS-25-д очоорой. Тэнд дугаартай локер байх бөгөөд код нь шүү! Миний хань аа!'},
+    {key:'smile', title:'Даалгавар 2', instruction:'Ямар мундаг охин бэ? Ийм мундаг охинтой цаашдаа хамтран амьдрах гэж байгаадаа ямар их баяртай байна гээч. За тэр ч яахав. Манай дотуур байрны урд очоорой! Тэнд Болдбаяр байгаа тэр чамд нэг юм өгөх байх ххэ! Мөн бэлэгнүүд чинь төвөгтэй санагдвал Болдоод өгөөгд хадгалуулж болно шүү!'},
+    {key:'magic', title:'Даалгавар 3', instruction:'Болдоо муу суга юу гэж байна! Хха за тэр ч яах вэ? Би чамайг талбай дээр хүлээж байя.'}
+  ];
+
+  function pad2(n){ return String(n).padStart(2,'0'); }
+
+  function renderLocked(){
+    const unlockTime = new Date(UNLOCK_AT);
+    section.innerHTML = `
+      <h2>Нууц даалгавар 🔒</h2>
+      <p style="color:var(--muted)">Эдгээр даалгаварууд <strong>${unlockTime.toLocaleString()}</strong> цагаас нээгдэнэ.</p>
+      <div class="count-grid" id="task-count">
+        <div class="box"><div class="num" id="td">00</div><div class="lab">Days</div></div>
+        <div class="box"><div class="num" id="th">00</div><div class="lab">Hours</div></div>
+        <div class="box"><div class="num" id="tm">00</div><div class="lab">Minutes</div></div>
+        <div class="box"><div class="num" id="ts">00</div><div class="lab">Seconds</div></div>
+      </div>
+      <div style="text-align:center;margin-top:6px;color:var(--muted)">Нээгдэх цаг: ${unlockTime.toLocaleString()}</div>
+    `;
+    function tick(){
+      const now = Date.now();
+      const diff = Math.max(0, UNLOCK_AT - now);
+      const s = Math.floor(diff/1000);
+      const d = Math.floor(s/86400);
+      const h = Math.floor((s%86400)/3600);
+      const m = Math.floor((s%3600)/60);
+      const ss = s%60;
+      const td=document.getElementById('td'), th=document.getElementById('th'), tm=document.getElementById('tm'), ts=document.getElementById('ts');
+      if(td){ td.textContent=pad2(d); th.textContent=pad2(h); tm.textContent=pad2(m); ts.textContent=pad2(ss); }
+      if(diff===0){ clearInterval(id); renderNormal(); }
+    }
+    tick();
+    const id = setInterval(tick, 1000);
+  }
+
+  function renderNormal(){
+    section.innerHTML = `
+      <h2>Нууц даалгавар 🔒→🔓</h2>
+      <p style="color:var(--muted);margin-top:4px">
+        За ханьдаа нууц даалгавар бэлдсээн. Миний ханиа <strong style="color:var(--rose)">love</strong> гэж бичээд эхний даалгавараа нээгээрэй! :
+      </p>
+      <div class="row" id="taskInputRow">
+        <input id="taskkey" placeholder="Түлхүүрээ оруулаарай ханиа…"/>
+        <div></div>
+        <button class="btn" id="unlock">НЭЭХ</button>
+      </div>
+      <div class="tasks-grid" id="tasklist"></div>
+    `;
+
+    const STORAGE='unlock-dagiimaa';
+    const list=document.getElementById('tasklist');
+    const keyInput=document.getElementById('taskkey');
+    const btn=document.getElementById('unlock');
+    let unlocked={};
+    try{unlocked=JSON.parse(localStorage.getItem(STORAGE)||'{}')}catch{unlocked={}}
+
+    function renderCards(){
+      list.innerHTML='';
+      TASKS.forEach(t=>{
+        const card=document.createElement('div'); card.className='task';
+        const status=unlocked[t.key]?'unlocked':'locked';
+        card.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center">
+          <strong>${t.title}</strong>
+          <span class="badge ${status}">${status==='unlocked'?'Unlocked':'Locked'}</span>
+        </div>
+        <div style="margin-top:6px;color:${status==='unlocked'?'inherit':'var(--muted)'}">
+          ${status==='unlocked'
+            ? `<div><strong>Түлхүүр:</strong> <span style="color:var(--rose)">${t.key}</span></div><div style="margin-top:4px">${t.instruction}</div>`
+            : `<em>Зөв үгээ бичээд эдгээр даалгавруудыг нээгээрэй ханиа.</em>`}
+        </div>`;
+        list.appendChild(card);
+      })
+    }
+
+    function confetti(anchor){
+      for(let i=0;i<80;i++){
+        const p=document.createElement('span'); p.className='confetti';
+        const rect=anchor.getBoundingClientRect();
+        p.style.left=(rect.left+window.scrollX+rect.width/2)+'px';
+        p.style.top =(rect.top+window.scrollY)+'px';
+        p.style.background=`hsl(${Math.random()*360} 90% 70%)`;
+        p.style.transform=`translateX(${(Math.random()*2-1)*40}px)`;
+        p.style.animationDelay=`${Math.random().toFixed(2)}s`;
+        document.body.appendChild(p);
+        setTimeout(()=>p.remove(),3000);
+      }
+    }
+
+    function unlock(){
+      const word=(keyInput.value||'').trim().toLowerCase();
+      const match=TASKS.find(t=>t.key.toLowerCase()===word);
+      keyInput.value='';
+      if(!match) return;
+      if(unlocked[match.key]) return;
+      unlocked[match.key]=true;
+      localStorage.setItem(STORAGE, JSON.stringify(unlocked));
+      renderCards();
+      confetti(btn);
+    }
+
+    btn.onclick=unlock;
+    keyInput.addEventListener('keydown',e=>{ if(e.key==='Enter') unlock() });
+    renderCards();
+  }
+
+  if(Date.now() < UNLOCK_AT){ renderLocked(); } else { renderNormal(); }
+})();
+
+// === Reveal .hb sections AT birthday — with song + animation + confetti ===
+(function revealAfterBirthday(){
+  const unlockAt = new Date(BIRTHDAY_ISO).getTime(); // at birthday
+  const els = document.getElementsByClassName('hb');
+  const audio = document.getElementById('bdaySong');
+
+  function fireConfettiCenter(times=4){
+    for(let t=0;t<times;t++){
+      setTimeout(()=>{
+        for(let i=0;i<140;i++){
+          const p=document.createElement('span');
+          p.className='confetti';
+          const cx = window.innerWidth/2, cy = window.innerHeight*0.28;
+          p.style.left = (cx + (Math.random()*2-1)*80) + 'px';
+          p.style.top  = (cy + (Math.random()*2-1)*30) + 'px';
+          p.style.background = `hsl(${Math.random()*360} 90% 70%)`;
+          p.style.transform = `translateX(${(Math.random()*2-1)*80}px)`;
+          p.style.animationDelay = (Math.random()).toFixed(2)+'s';
+          document.body.appendChild(p);
+          setTimeout(()=>p.remove(),3000);
+        }
+      }, t*350);
+    }
+  }
+
+  function showAll(){
+    for (let i = 0; i < els.length; i++) {
+      els[i].style.display = 'block';
+      els[i].classList.add('reveal'); // pop-in animation
+    }
+    fireConfettiCenter();
+
+    // Try to play song; if blocked, show play button
+    audio.volume = 0.75;
+    audio.play().catch(()=>{
+      const btn=document.createElement('button');
+      btn.className='btn';
+      btn.textContent='▶ Play birthday song';
+      btn.style.position='fixed';
+      btn.style.bottom='16px';
+      btn.style.right='16px';
+      btn.style.zIndex='100';
+      document.body.appendChild(btn);
+      btn.onclick=()=>{ audio.play().then(()=>btn.remove()).catch(()=>{}); };
+    });
+
+    clearInterval(id);
+  }
+
+  function check(){
+    if (Date.now() >= unlockAt) showAll();
+  }
+
+  check(); // reveal immediately if we're already past the time
+  const id = setInterval(check, 1000);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+body{
+    
+}
+div.container{
+    display: flex;
+    columns: 4;
+    gap:5em;
+    max-width: 100%;
+    height: 490px;
+    justify-content: center;
+    align-items: center;
+    margin:0px 50px 0px 50px;
+}
+
+div.container > div.content{
+    display: block;
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5%;
+    border: 5px solid #387CA3;
+}
+
+div.container > div.content > div.row{
+    display: flex;
+    columns: 3;
+}
+
+button{
+    display: block;
+    width: 100px;
+    height: 60px;
+    background-color:white;
+    color: #387CA3;
+    border-color: #387CA3;
+    margin:3px;
+    border-radius: 10%;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.button:hover{
+    background-color: black;
+}
+
+div.header{
+    width: 100%;
+    height: 100px;
+    display:flex;
+    background-color: #387CA3;
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+p{
+    background-color: #387CA3;
+    color:white;
+    text-align: center;
+    padding: 10px;
+
+}
+
+select{
+    width: 200px;
+    height: 50px;
+}
+
+.input{
+    margin-bottom: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+input{
+    width: 420px;
+    height: 50px;
+}
+
+input::placeholder{
+    font-family: 'Arial', sans-serif; 
+    font-size: 20px;
+    color: #387CA3;
+    font-style: italic; 
+}
+
+footer{
+    display: block;
+    bottom: 0px;
+    margin:0 !important;
+    border:none;
+}
+
+.spec{
+    background-color: rgb(250, 172, 26);
+    color:white;
+    border:2px solid orange;
+}

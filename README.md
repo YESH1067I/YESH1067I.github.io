@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 💗 Чамд зориулсан нэгэн түүх
 
 Хайртдаа зориулсан, утас болон компьютер дээр ажиллах төрсөн өдрийн романтик веб сайт. Сайт нь **интернетгүй байсан ч** үндсэн ажиллагаагаа гүйцэтгэнэ. Зөвхөн нэмэлт Google Fonts нь интернеттэй үед ачаална.
@@ -76,3 +77,21 @@ npx vercel --prod
 - `assets/` — Өөрийн зургуудын хавтас
 
 **Гол зүйл:** Бэлгийн хоёр нэр эхнээсээ ил харагдахгүй. Таасан/нууцыг тайлсан үед л гарна. ♡
+=======
+## Hi there 👋
+
+<!--
+**YESH1067I/YESH1067I** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+
+Here are some ideas to get you started:
+
+- 🔭 I’m currently working on ...
+- 🌱 I’m currently learning ...
+- 👯 I’m looking to collaborate on ...
+- 🤔 I’m looking for help with ...
+- 💬 Ask me about ...
+- 📫 How to reach me: ...
+- 😄 Pronouns: ...
+- ⚡ Fun fact: ...
+-->
+>>>>>>> d1c3583d208a21c00cba03992311527067dbe1c5
